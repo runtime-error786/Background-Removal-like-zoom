@@ -16,3 +16,10 @@ bg_image = cv2.imread(background_images[bg_index])
 
 cap = cv2.VideoCapture(0)
 
+def change_background(image, bg_image):
+    img_out = segmentor.removeBG(image, bg_image)
+    
+    img_out = apply_post_processing(img_out, bg_image)
+    
+    return img_out
+
